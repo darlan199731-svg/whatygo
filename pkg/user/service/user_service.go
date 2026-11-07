@@ -576,7 +576,8 @@ func (u *userService) BlockContact(data *BlockStruct, instance *instance_model.I
 	// utils.CanonicalJID).
 	jid = utils.CanonicalJID(jid)
 
-	resp, err := client.UpdateBlocklist(context.Background(), jid, events.BlocklistChangeActionBlock)
+	// O "" é o dhash (novo no whatsmeow de 11/2026): vazio = sempre devolver a lista, como antes.
+	resp, err := client.UpdateBlocklist(context.Background(), jid, events.BlocklistChangeActionBlock, "")
 	if err != nil {
 		return nil, err
 	}
@@ -600,7 +601,8 @@ func (u *userService) UnlockContact(data *BlockStruct, instance *instance_model.
 	// utils.CanonicalJID).
 	jid = utils.CanonicalJID(jid)
 
-	resp, err := client.UpdateBlocklist(context.Background(), jid, events.BlocklistChangeActionUnblock)
+	// O "" é o dhash (novo no whatsmeow de 11/2026): vazio = sempre devolver a lista, como antes.
+	resp, err := client.UpdateBlocklist(context.Background(), jid, events.BlocklistChangeActionUnblock, "")
 	if err != nil {
 		return nil, err
 	}
@@ -614,7 +616,8 @@ func (u *userService) GetBlockList(instance *instance_model.Instance) (*types.Bl
 		return nil, err
 	}
 
-	resp, err := client.GetBlocklist(context.Background())
+	// O "" é o dhash (novo no whatsmeow de 11/2026): vazio = sempre devolver a lista, como antes.
+	resp, err := client.GetBlocklist(context.Background(), "")
 	if err != nil {
 		return nil, err
 	}
