@@ -2,6 +2,8 @@ module github.com/lucasgiovannibr/whatygo
 
 go 1.26.8
 
+toolchain go1.26.10
+
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.2
 	github.com/chai2010/webp v1.4.0
@@ -27,7 +29,7 @@ require (
 	go.mau.fi/util v0.11.0
 	go.mau.fi/whatsmeow v0.0.0-20261106223246-93ce5f1e6023
 	golang.org/x/image v0.46.0
-	golang.org/x/net v0.61.0
+	golang.org/x/net v0.62.0
 	golang.org/x/sync v0.24.0
 	google.golang.org/protobuf v1.36.12
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
